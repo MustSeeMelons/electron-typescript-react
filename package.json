@@ -1,0 +1,56 @@
+{
+    "name": "electron_base",
+    "version": "1.0.0",
+    "description": "Barebones electron with typescript",
+    "main": "./dist/main.bundle.js",
+    "scripts": {
+        "clean": "node clean.js",
+        "build": "npm run clean && webpack --config ./webpack.config.js",
+        "pack": "npm run clean && npm run build && electron-builder --dir",
+        "dist": "npm run clean && npm run build && electron-builder",
+        "start": "webpack --config ./webpack.config.js && electron ./dist/main.bundle.js"
+    },
+    "repository": {
+        "type": "git"
+    },
+    "keywords": [
+        "React",
+        "Typescript",
+        "Electron"
+    ],
+    "author": "Strautins",
+    "devDependencies": {
+        "@types/react": "16.9.11",
+        "@types/react-dom": "16.9.3",
+        "css-loader": "^2.1.1",
+        "electron": "5.0.2",
+        "file-loader": "3.0.1",
+        "html-webpack-plugin": "3.2.0",
+        "node-sass": "4.12.0",
+        "sass-loader": "7.1.0",
+        "style-loader": "0.23.1",
+        "ts-loader": "6.0.1",
+        "typescript": "3.5.1",
+        "webpack": "4.41.2",
+        "webpack-cli": "3.3.10",
+        "webpack-dev-server": "3.9.0",
+        "electron-builder": "22.1.0",
+        "copy-webpack-plugin": "5.0.4",
+        "del": "5.1.0"
+    },
+    "dependencies": {
+        "react": "16.11.0",
+        "react-dom": "16.11.0"
+    },
+    "build": {
+        "appId": "electron_barebones",
+        "productName": "Electron Barebones",
+        "files": [
+            "./dist/**/*"
+        ],
+        "win": {
+            "target": "portable",
+            "icon": "./src/resources/images/icon.png"
+        }
+    }
+}
